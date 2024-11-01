@@ -31,8 +31,8 @@ function renderMain() {
 
   main.innerHTML = `
     <div class="description-container">
-      <div class="title">
-        Read
+      <div class="title-container">
+        <p class="title">Read</p>
       </div>
 
       <p class="description">

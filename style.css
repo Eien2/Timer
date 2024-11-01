@@ -1,0 +1,43 @@
+/*====General====*/
+body {
+  margin: 24px;
+  font-family: Verdana;
+}
+
+p {
+  margin: 0;
+}
+
+:root {
+  --primary-color: #402020;
+  --secondary-color: #484040;
+  --primary-text: #000000;
+  --secondary-text: #E31212;
+  --light-primary-text: #FFFFFF;
+}
+
+/*====Main====*/
+
+/* Description */
+main .description-container .title-container {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+main .description-container .title {
+  border-radius: 8px;
+  padding: 8px 40px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  background-color: var(--primary-color);
+  color: var(--light-primary-text);
+}
+
+main .description-container .description {
+  line-height: 1.5;
+  margin-bottom: 120px;
+}
+
+/*====Footer====*/
