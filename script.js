@@ -9,9 +9,9 @@ function renderFooter() {
 }
 
 function renderTimer() {
-  const main = document.querySelector(".js-main");
+  const main2 = document.querySelector(".js-main-2");
 
-  main.innerHTML += `
+  main2.innerHTML += `
     <div class="timer-frame">
       <div class="timer">
         <button class="stop-start-btn js-start-btn">

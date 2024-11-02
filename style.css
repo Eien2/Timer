@@ -20,7 +20,7 @@ p {
   --light-primary-text: #FFFFFF;
 }
 
-/*====Main====*/
+/*====Main-1====*/
 
 /* Description */
 main .description-container .title-container {
@@ -85,5 +85,7 @@ main .inputs .time-input {
 main .inputs .time-input:focus {
   outline: none;
 }
+
+/*====Main-2====*/
 
 /*====Footer====*/
