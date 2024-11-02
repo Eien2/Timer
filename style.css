@@ -27,14 +27,14 @@ p {
 /*====Main-1====*/
 
 /* Description */
-main .description-container .title-container {
+.left-side main .description-container .title-container {
   display: flex;
   justify-items: center;
   align-items: center;
   margin-bottom: 16px;
 }
 
-main .description-container .title {
+.left-side main .description-container .title {
   border-radius: 8px;
   padding: 8px 40px;
   font-weight: 700;
@@ -43,13 +43,13 @@ main .description-container .title {
   color: var(--light-primary-text);
 }
 
-main .description-container .description {
+.left-side main .description-container .description {
   line-height: 1.5;
   margin-bottom: 120px;
 }
 
 /* Inputs Menu */
-main .input-container {
+.left-side main .input-container {
   background-color: var(--primary-text);
   width: 50%;
   padding: 26px;
@@ -57,7 +57,7 @@ main .input-container {
   margin-bottom: 80px;
 }
 
-main .input-container .description-container-in {
+.left-side main .input-container .description-container-in {
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -65,20 +65,20 @@ main .input-container .description-container-in {
   margin-bottom: 32px;
 }
 
-main .input-container .description-container-in .description {
+.left-side main .input-container .description-container-in .description {
   color: var(--light-primary-text);
 }
 
-main .input-container .description-container-in .description-1 {
+.left-side main .input-container .description-container-in .description-1 {
   margin-bottom: 8px;
 }
 
-main .inputs {
+.left-side main .inputs {
   display: flex;
   justify-content: space-between;
 }
 
-main .inputs .time-input {
+.left-side main .inputs .time-input {
   border: none;
   padding: 8px 12px 80px 12px;
   width: 100px;
@@ -87,18 +87,18 @@ main .inputs .time-input {
   text-align: center;
 }
 
-main .inputs .time-input:focus {
+.left-side main .inputs .time-input:focus {
   outline: none;
 }
 
-main .reset-btn-container {
+.left-side main .reset-btn-container {
   width: 50%;
   display: flex;
   justify-content: center;
   padding: 26px;
 }
 
-main .reset-btn-container .reset-btn {
+.left-side main .reset-btn-container .reset-btn {
   border: none;
   cursor: pointer;
   color: var(--light-primary-text);
@@ -111,7 +111,12 @@ main .reset-btn-container .reset-btn {
 }
 
 /*====Main-2====*/
-
+.right-side {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /*====Footer====*/
 footer {
