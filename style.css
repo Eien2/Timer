@@ -8,6 +8,10 @@ p {
   margin: 0;
 }
 
+.left-side {
+  width: 50%;
+}
+
 :root {
   --primary-color: #402020;
   --secondary-color: #484040;
@@ -38,6 +42,48 @@ main .description-container .title {
 main .description-container .description {
   line-height: 1.5;
   margin-bottom: 120px;
+}
+
+/* Inputs Menu */
+main .input-container {
+  background-color: var(--primary-text);
+  width: 50%;
+  padding: 26px;
+  border-radius: 8px;
+}
+
+main .input-container .description-container-in {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+main .input-container .description-container-in .description {
+  color: var(--light-primary-text);
+}
+
+main .input-container .description-container-in .description-1 {
+  margin-bottom: 8px;
+}
+
+main .inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+main .inputs .time-input {
+  border: none;
+  padding: 8px 12px 80px 12px;
+  width: 100px;
+  background-color: var(--secondary-color);
+  color: var(--light-primary-text);
+  text-align: center;
+}
+
+main .inputs .time-input:focus {
+  outline: none;
 }
 
 /*====Footer====*/

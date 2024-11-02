@@ -45,15 +45,19 @@ function renderMain() {
     </div>
 
     <div class="input-container">
-      <p class="description">
-        Please provide numbers in inputs below. <br>
-        Max 59 seconds and minutes.
-      </p>
+      <div class="description-container-in">
+        <p class="description description-1">
+          Please provide numbers in inputs below.
+        </p>
+        <p class="description description-2">
+          Max 59 seconds and minutes.
+        </p>
+      </div>
 
       <div class="inputs">
-        <input class="input-hours js-hours" type="number" name="time" value="" placeholder="Hours">
-        <input class="input-minutes js-minutes" type="number" name="time" value="" placeholder="Minutes">
-        <input class="input-seconds js-seconds" type="number" name="time" value="" placeholder="Seconds">
+        <input class="input-hours js-hours time-input" type="text" name="time" value="" placeholder="Hours">
+        <input class="input-minutes js-minutes time-input" type="text" name="time" value="" placeholder="Minutes">
+        <input class="input-seconds js-seconds time-input" type="text" name="time" value="" placeholder="Seconds">
       </div>
     </div>
 
