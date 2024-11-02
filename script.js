@@ -13,11 +13,9 @@ function renderTimer() {
 
   main2.innerHTML += `
     <div class="timer-frame">
-      <div class="timer">
-        <button class="stop-start-btn js-start-btn">
-          <div class="stop-start-container"></div>
-        </button>
+      <button class="stop-start-btn js-start-btn"></button>
 
+      <div class="timer">
         <p class="timer-text js-timer-output">
           00:00:00
         </p>
