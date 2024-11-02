@@ -54,6 +54,7 @@ main .input-container {
   width: 50%;
   padding: 26px;
   border-radius: 8px;
+  margin-bottom: 80px;
 }
 
 main .input-container .description-container-in {
@@ -88,6 +89,25 @@ main .inputs .time-input {
 
 main .inputs .time-input:focus {
   outline: none;
+}
+
+main .reset-btn-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 26px;
+}
+
+main .reset-btn-container .reset-btn {
+  border: none;
+  cursor: pointer;
+  color: var(--light-primary-text);
+  background-color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 200px;
+  height: 190px;
+  border-radius: 50%;
 }
 
 /*====Main-2====*/

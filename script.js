@@ -61,7 +61,9 @@ function renderMain() {
       </div>
     </div>
 
-    <button class="reset-btn js-reset-btn">Reset Timer</button>
+    <div class="reset-btn-container">
+      <button class="reset-btn js-reset-btn">Reset Timer</button>
+    </div>
   `;
 
   renderTimer();
