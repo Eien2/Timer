@@ -12,6 +12,10 @@ p {
   width: 50%;
 }
 
+.mains {
+  display: flex;
+}
+
 :root {
   --primary-color: #402020;
   --secondary-color: #484040;
@@ -88,4 +92,22 @@ main .inputs .time-input:focus {
 
 /*====Main-2====*/
 
+
 /*====Footer====*/
+footer {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  white-space: nowrap;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  margin-bottom: 24px;
+}
+
+footer .link {
+  color: var(--primary-text);
+  text-decoration: none;
+  cursor: pointer;
+}
