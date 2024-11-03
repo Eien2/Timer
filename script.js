@@ -1,3 +1,4 @@
+/*====HTML====*/
 function renderFooter() {
   const footer = document.querySelector(".js-footer");
 
@@ -67,7 +68,34 @@ function renderMain() {
   renderTimer();
 }
 
-function timer() { }
-
 renderMain();
 renderFooter();
+
+/*====INTERACTIVE====*/
+function timer() { 
+  let hoursInput = document.querySelector(".js-hours");
+  let minutesInput = document.querySelector(".js-minutes");
+  let secondsInput = document.querySelector(".js-seconds");
+  hoursInput = hoursInput.value;
+  minutesInput = minutesInput.value;
+  secondsInput = secondsInput.value
+
+  const formatHours = Number(hoursInput * 3600);
+  const formatMinutes = Number(minutesInput * 60);
+  const formatSeconds = Number(secondsInput);
+
+  let time = formatHours + formatMinutes + formatSeconds;
+}
+
+function startTimer() {
+  const startBtn = document.querySelector(".stop-start-btn");
+
+  startBtn.addEventListener("click", () => {
+    timer();
+  });
+}
+
+function stopTimer() {
+}
+
+startTimer();
