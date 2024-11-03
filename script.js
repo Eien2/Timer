@@ -97,6 +97,7 @@ function timer() {
 
       if (time == 0) {
         clearInterval(timeInterval)
+        timerEndSoundEffect();
       }
     }, 1000);
   } else if (!hoursInput || !minutesInput || !secondsInput) {
@@ -110,6 +111,12 @@ function startTimer() {
   startBtn.addEventListener("click", () => {
     timer();
   });
+}
+
+function timerEndSoundEffect() {
+  const ringSound = new Audio("./sounds/ring-sound.mp3");
+  ringSound.volume = 0.5;
+  ringSound.play();
 }
 
 startTimer();
