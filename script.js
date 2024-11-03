@@ -100,6 +100,18 @@ function timer() {
         timerEndSoundEffect();
       }
     }, 1000);
+
+    const resetBtn = document.querySelector(".js-reset-btn");
+
+    resetBtn.addEventListener("click", () => {
+      time = 0;
+      const timeString = `${new Date(time * 1000).toISOString().slice(11, 19)}`;
+      const timerOutput = document.querySelector(".js-timer-output");
+      timerOutput.innerText = `${timeString}`;
+
+      document.title = `Timer - ${timeString}`;
+      clearInterval(timeInterval);
+    });
   } else if (!hoursInput || !minutesInput || !secondsInput) {
     alert("Please Enter Values");
   }
@@ -117,6 +129,9 @@ function timerEndSoundEffect() {
   const ringSound = new Audio("./sounds/ring-sound.mp3");
   ringSound.volume = 0.5;
   ringSound.play();
+}
+
+function resetBtn() {
 }
 
 startTimer();
