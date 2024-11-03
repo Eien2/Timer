@@ -54,9 +54,9 @@ function renderMain() {
       </div>
 
       <div class="inputs">
-        <input class="input-hours js-hours time-input" type="text" name="time" value="" placeholder="Hours">
-        <input class="input-minutes js-minutes time-input" type="text" name="time" value="" placeholder="Minutes">
-        <input class="input-seconds js-seconds time-input" type="text" name="time" value="" placeholder="Seconds">
+        <input class="input-hours js-hours time-input" type="text" name="time" value="" placeholder="HH">
+        <input class="input-minutes js-minutes time-input" type="text" name="time" value="" placeholder="MM">
+        <input class="input-seconds js-seconds time-input" type="text" name="time" value="" placeholder="SS">
       </div>
     </div>
 
@@ -72,30 +72,44 @@ renderMain();
 renderFooter();
 
 /*====INTERACTIVE====*/
-function timer() { 
+function timer() {
   let hoursInput = document.querySelector(".js-hours");
   let minutesInput = document.querySelector(".js-minutes");
   let secondsInput = document.querySelector(".js-seconds");
   hoursInput = hoursInput.value;
   minutesInput = minutesInput.value;
-  secondsInput = secondsInput.value
+  secondsInput = secondsInput.value;
 
-  const formatHours = Number(hoursInput * 3600);
-  const formatMinutes = Number(minutesInput * 60);
-  const formatSeconds = Number(secondsInput);
+  if (hoursInput != "" && minutesInput != "" && secondsInput != "") {
+    const formatHours = Number(hoursInput * 3600);
+    const formatMinutes = Number(minutesInput * 60);
+    const formatSeconds = Number(secondsInput);
 
-  let time = formatHours + formatMinutes + formatSeconds;
+    let time = formatHours + formatMinutes + formatSeconds;
+
+    const timeInterval = setInterval(() => {
+      time--;
+      const timeString = `${new Date(time * 1000).toISOString().slice(11, 19)}`;
+      const timerOutput = document.querySelector(".js-timer-output");
+      timerOutput.innerText = `${timeString}`;
+
+      document.title = `Timer - ${timeString}`;
+
+      if (time == 0) {
+        clearInterval(timeInterval)
+      }
+    }, 1000);
+  } else if (!hoursInput || !minutesInput || !secondsInput) {
+    alert("Please Enter Values");
+  }
 }
 
 function startTimer() {
-  const startBtn = document.querySelector(".stop-start-btn");
+  const startBtn = document.querySelector(".js-start-btn");
 
   startBtn.addEventListener("click", () => {
     timer();
   });
-}
-
-function stopTimer() {
 }
 
 startTimer();
