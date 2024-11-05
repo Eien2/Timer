@@ -14,7 +14,10 @@ function renderTimer() {
 
   main2.innerHTML += `
     <div class="timer-frame">
-      <button class="stop-start-btn js-start-btn"></button>
+      <div class="stop-start-container">
+        <button class="stop-start-btn start-btn js-start-btn">Start</button>
+        <button class="stop-start-btn stop-btn js-stop-btn">Stop</button>
+      </div>
 
       <div class="timer">
         <p class="timer-text js-timer-output">
@@ -72,6 +75,7 @@ renderMain();
 renderFooter();
 
 /*====INTERACTIVE====*/
+
 function timer() {
   let hoursInput = document.querySelector(".js-hours");
   let minutesInput = document.querySelector(".js-minutes");
@@ -85,44 +89,51 @@ function timer() {
     const formatMinutes = Number(minutesInput * 60);
     const formatSeconds = Number(secondsInput);
 
-    let time = formatHours + formatMinutes + formatSeconds;
+    let time = JSON.parse(localStorage.getItem("time")) || {
+      time: formatHours + formatMinutes + formatSeconds,
+    };
 
+    // Time Script
     const timeInterval = setInterval(() => {
-      time--;
-      const timeString = `${new Date(time * 1000).toISOString().slice(11, 19)}`;
+      time.time--;
+      time.timeOnGoing = time.time;
+      const timeString = `${new Date(time.timeOnGoing * 1000).toISOString().slice(11, 19)}`;
       const timerOutput = document.querySelector(".js-timer-output");
       timerOutput.innerText = `${timeString}`;
 
       document.title = `Timer - ${timeString}`;
 
-      if (time == 0) {
-        clearInterval(timeInterval)
+      if (time.time == 0) {
+        clearInterval(timeInterval);
         timerEndSoundEffect();
       }
+      localStorage.setItem("time", JSON.stringify(time));
     }, 1000);
 
+    // Reset Button
     const resetBtn = document.querySelector(".js-reset-btn");
 
     resetBtn.addEventListener("click", () => {
-      time = 0;
-      const timeString = `${new Date(time * 1000).toISOString().slice(11, 19)}`;
+      time.time = 0;
+      localStorage.removeItem("time");
+      const timeString = `${new Date(time.time * 1000).toISOString().slice(11, 19)}`;
       const timerOutput = document.querySelector(".js-timer-output");
       timerOutput.innerText = `${timeString}`;
 
       document.title = `Timer - ${timeString}`;
       clearInterval(timeInterval);
     });
+
+    // Stop Btn
+    const stopBtn = document.querySelector(".js-stop-btn");
+
+    stopBtn.addEventListener("click", () => {
+      clearInterval(timeInterval);
+      time.timeOnGoing = time.time;
+    });
   } else if (!hoursInput || !minutesInput || !secondsInput) {
     alert("Please Enter Values");
   }
-}
-
-function startTimer() {
-  const startBtn = document.querySelector(".js-start-btn");
-
-  startBtn.addEventListener("click", () => {
-    timer();
-  });
 }
 
 function timerEndSoundEffect() {
@@ -131,7 +142,11 @@ function timerEndSoundEffect() {
   ringSound.play();
 }
 
-function resetBtn() {
-}
+localStorage.removeItem("time");
 
-startTimer();
+// Buttons
+const startBtn = document.querySelector(".js-start-btn");
+
+startBtn.addEventListener("click", () => {
+  timer();
+});

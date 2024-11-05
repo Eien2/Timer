@@ -136,10 +136,20 @@ p {
   align-items: center;
 }
 
+.right-side .timer-frame .stop-start-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
 .right-side .timer-frame .stop-start-btn {
+  color: var(--light-primary-text);
+  font-size: 1.3rem;
+  font-weight: 700;
   border: none;
   cursor: poitner;
-  width: 50%;
+  width: 25%;
   height: 50px;
   background-color: #BCBCBC;
   transition: 0.25s ease-in-out;
