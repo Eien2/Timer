@@ -84,7 +84,11 @@ function timer() {
   minutesInput = minutesInput.value;
   secondsInput = secondsInput.value;
 
-  if (hoursInput != "" && minutesInput != "" && secondsInput != "") {
+  if (!hoursInput || !minutesInput || !secondsInput) {
+    alert("Please Enter Values");
+  } else if (minutesInput >= 60 || secondsInput >= 60) {
+    alert("You can't enter minutes and seconds above 59");
+  } else if (hoursInput != "" && minutesInput != "" && secondsInput != "") {
     const formatHours = Number(hoursInput * 3600);
     const formatMinutes = Number(minutesInput * 60);
     const formatSeconds = Number(secondsInput);
@@ -103,11 +107,13 @@ function timer() {
 
       document.title = `Timer - ${timeString}`;
 
+      localStorage.setItem("time", JSON.stringify(time));
+
       if (time.time == 0) {
         clearInterval(timeInterval);
         timerEndSoundEffect();
+        localStorage.removeItem("time");
       }
-      localStorage.setItem("time", JSON.stringify(time));
     }, 1000);
 
     // Reset Button
@@ -131,8 +137,6 @@ function timer() {
       clearInterval(timeInterval);
       time.timeOnGoing = time.time;
     });
-  } else if (!hoursInput || !minutesInput || !secondsInput) {
-    alert("Please Enter Values");
   }
 }
 
