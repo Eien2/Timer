@@ -89,6 +89,8 @@ function timer() {
   } else if (minutesInput >= 60 || secondsInput >= 60) {
     alert("You can't enter minutes and seconds above 59");
   } else if (hoursInput != "" && minutesInput != "" && secondsInput != "") {
+    startBtn.classList.add("half");
+
     const formatHours = Number(hoursInput * 3600);
     const formatMinutes = Number(minutesInput * 60);
     const formatSeconds = Number(secondsInput);
@@ -110,6 +112,7 @@ function timer() {
       localStorage.setItem("time", JSON.stringify(time));
 
       if (time.time == 0) {
+        startBtn.classList.remove("half");
         clearInterval(timeInterval);
         timerEndSoundEffect();
         localStorage.removeItem("time");
@@ -120,6 +123,9 @@ function timer() {
     const resetBtn = document.querySelector(".js-reset-btn");
 
     resetBtn.addEventListener("click", () => {
+      startBtn.classList.remove("half");
+      stopBtn.classList.remove("half");
+
       time.time = 0;
       localStorage.removeItem("time");
       const timeString = `${new Date(time.time * 1000).toISOString().slice(11, 19)}`;
@@ -136,6 +142,8 @@ function timer() {
     stopBtn.addEventListener("click", () => {
       clearInterval(timeInterval);
       time.timeOnGoing = time.time;
+      startBtn.classList.remove("half");
+      stopBtn.classList.add("half");
     });
   }
 }
@@ -150,7 +158,9 @@ localStorage.removeItem("time");
 
 // Buttons
 const startBtn = document.querySelector(".js-start-btn");
+const stopBtn = document.querySelector(".js-stop-btn");
 
 startBtn.addEventListener("click", () => {
   timer();
+  stopBtn.classList.remove("half");
 });
