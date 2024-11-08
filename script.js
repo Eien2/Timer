@@ -86,6 +86,8 @@ function timer() {
 
   if (!hoursInput || !minutesInput || !secondsInput) {
     alert("Please Enter Values");
+  } else if (minutesInput == 0 && hoursInput == 0 && secondsInput == 0) {
+    alert("Enter more than zero in any of the inputs");
   } else if (minutesInput >= 60 || secondsInput >= 60) {
     alert("You can't enter minutes and seconds above 59");
   } else if (hoursInput != "" && minutesInput != "" && secondsInput != "") {
