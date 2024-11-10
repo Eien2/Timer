@@ -77,13 +77,11 @@ renderFooter();
 /*====INTERACTIVE====*/
 
 function timer() {
-  let hoursInput = document.querySelector(".js-hours");
-  let minutesInput = document.querySelector(".js-minutes");
-  let secondsInput = document.querySelector(".js-seconds");
-  hoursInput = hoursInput.value;
-  minutesInput = minutesInput.value;
-  secondsInput = secondsInput.value;
+  let hoursInput = document.querySelector(".js-hours").value;
+  let minutesInput = document.querySelector(".js-minutes").value;
+  let secondsInput = document.querySelector(".js-seconds").value;
 
+  // Validation
   if (!hoursInput || !minutesInput || !secondsInput) {
     alert("Please Enter Values");
   } else if (minutesInput == 0 && hoursInput == 0 && secondsInput == 0) {
