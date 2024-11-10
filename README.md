@@ -2,7 +2,7 @@
 
 ### How it works
 
-You enter numbers in inputs then click start button and vuala.
+You enter numbers in inputs then click start button and voilà.
 
 You can stop the timer or reset it.
 
